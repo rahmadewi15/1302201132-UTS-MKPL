@@ -12,8 +12,8 @@ public class Employee {
     private String lastName;
     private String idNumber;
     private String address;
-	
-	private LocalDate dateJoined;
+
+    private LocalDate dateJoined;
 
     private boolean isForeigner;
     private boolean isMale;
@@ -25,9 +25,9 @@ public class Employee {
     private String spouseName;
     private String spouseIdNumber;
 
-	private List<Child> children;
-	
-	public Employee(String employeeId, String firstName, String lastName, String idNumber, String address, LocalDate dateJoined, boolean isForeigner, boolean isMale) {
+    private List<Child> children;
+
+    public Employee(String employeeId, String firstName, String lastName, String idNumber, String address, LocalDate dateJoined, boolean isForeigner, boolean isMale) {
         this.employeeId = employeeId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -40,13 +40,12 @@ public class Employee {
         children = new ArrayList<>();
     }
 
-	
-	/**
-	 * Fungsi untuk menentukan gaji bulanan pegawai berdasarkan grade kepegawaiannya (grade 1: 3.000.000 per bulan, grade 2: 5.000.000 per bulan, grade 3: 7.000.000 per bulan)
-	 * Jika pegawai adalah warga negara asing gaji bulanan diperbesar sebanyak 50%
-	 */
-	
-	public void setMonthlySalary(int grade) {
+    /**
+     * Fungsi untuk menentukan gaji bulanan pegawai berdasarkan grade kepegawaiannya (grade 1: 3.000.000 per bulan, grade 2: 5.000.000 per bulan, grade 3: 7.000.000 per bulan)
+     * Jika pegawai adalah warga negara asing gaji bulanan diperbesar sebanyak 50%
+     */
+
+    public void setMonthlySalary(int grade) {
         switch (grade) {
             case 1:
                 monthlySalary = 3000000;
@@ -65,8 +64,8 @@ public class Employee {
             monthlySalary = (int) (monthlySalary * 1.5);
         }
     }
-	
-	 public void setAnnualDeductible(int deductible) {
+
+    public void setAnnualDeductible(int deductible) {
         this.annualDeductible = deductible;
     }
 
