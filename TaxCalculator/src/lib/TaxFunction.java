@@ -2,7 +2,7 @@ package lib;
 
 public class TaxFunction {
 
-	private static final int MAX_CHILDREN = 3;
+    private static final int MAX_CHILDREN = 3;
 	private static final int MAX_MONTHS_WORKED = 12;
 	private static final double TAX_RATE = 0.05;
 	private static final int MARRIED_DEDUCTIBLE = 58500000;
