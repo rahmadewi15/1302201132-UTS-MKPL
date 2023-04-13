@@ -2,30 +2,37 @@ package lib;
 
 public class TaxFunction {
 
-	public static int calculateTax(int monthlySalary, int otherMonthlyIncome, int numberOfMonthWorking, int deductible, boolean isMarried, int numberOfChildren) {
-		
-		int tax = 0;
-		
-		if (numberOfMonthWorking > 12) {
-			System.err.println("More than 12 month working per year");
+	private static final int MAX_CHILDREN = 3;
+	private static final int MAX_MONTHS_WORKED = 12;
+	private static final double TAX_RATE = 0.05;
+	private static final int MARRIED_DEDUCTIBLE = 58500000;
+	private static final int CHILD_DEDUCTIBLE = 1500000;
+
+	public static int calculateTax(int monthlySalary, int otherMonthlyIncome, int numberOfMonthsWorked, int deductible, boolean isMarried, int numberOfChildren) {
+
+		if (numberOfMonthsWorked > MAX_MONTHS_WORKED) {
+			throw new IllegalArgumentException("Number of months worked cannot exceed " + MAX_MONTHS_WORKED);
 		}
-		
-		if (numberOfChildren > 3) {
-			numberOfChildren = 3;
+
+		if (numberOfChildren > MAX_CHILDREN) {
+			numberOfChildren = MAX_CHILDREN;
 		}
-		
+
+		int annualSalary = (monthlySalary + otherMonthlyIncome) * numberOfMonthsWorked;
+		int deductibleAmount = deductible;
+
 		if (isMarried) {
-			tax = (int) Math.round(0.05 * (((monthlySalary + otherMonthlyIncome) * numberOfMonthWorking) - deductible - (54000000 + 4500000 + (numberOfChildren * 1500000))));
-		}else {
-			tax = (int) Math.round(0.05 * (((monthlySalary + otherMonthlyIncome) * numberOfMonthWorking) - deductible - 54000000));
+			deductibleAmount += MARRIED_DEDUCTIBLE;
 		}
-		
-		if (tax < 0) {
+
+		deductibleAmount += numberOfChildren * CHILD_DEDUCTIBLE;
+
+		int taxableIncome = annualSalary - deductibleAmount;
+
+		if (taxableIncome < 0) {
 			return 0;
-		}else {
-			return tax;
 		}
-			 
+
+		return (int) Math.round(taxableIncome * TAX_RATE);
 	}
-	
 }
