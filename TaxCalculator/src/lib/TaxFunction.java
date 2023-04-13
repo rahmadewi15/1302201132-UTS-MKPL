@@ -1,7 +1,7 @@
 package lib;
 
 public class TaxFunction {
-	
+
 	public static int calculateTax(int monthlySalary, int otherMonthlyIncome, int numberOfMonthWorking, int deductible, boolean isMarried, int numberOfChildren) {
 		
 		int tax = 0;
