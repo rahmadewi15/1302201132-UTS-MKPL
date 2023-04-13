@@ -1,7 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\TaxCalculator",
+    "\\TaxCalculator\\.settings",
+    "\\TaxCalculator\\bin",
+    "\\TaxCalculator\\bin\\gui",
+    "\\TaxCalculator\\src",
+    "\\TaxCalculator\\src\\lib"
   ],
-  "SelectedNode": "\\D:\\SEMESTER 6\\TUGAS\\Manajemen Konfigurasi\\UTS-MKPL-1302201132\\1302201132-UTS-MKPL",
+  "SelectedNode": "\\TaxCalculator\\.project",
   "PreviewInSolutionExplorer": false
 }
